@@ -5,7 +5,10 @@ import speech_recognition as sr
 
 GPIO.setmode(GPIO.BOARD)
 
+servoPIN = 17
+
 GPIO.setup(11, GPIO.OUT)
+GPIO.setup(17, GPIO.OUT)
 
 
 r = sr.Recognizer()
@@ -34,12 +37,12 @@ def listen():
                     return value
                 else:
                     print("You said {}".format(value))
-                    if value == "can you open bedroom":
+                    if value == "servo open":
                         print("tamamdır")
-                        GPIO.output(11,True)
-                    if value == "can you close bedroom":
+                    
+                    if value == "servo close":
                         print("tamamdır")
-                        GPIO.output(11,False)
+                    
 
                             
             except sr.UnknownValueError:

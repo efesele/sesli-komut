@@ -7,7 +7,6 @@ GPIO.setmode(GPIO.BOARD)
 
 servoPIN = 17
 
-GPIO.setup(11, GPIO.OUT)
 GPIO.setup(17, GPIO.OUT)
 
 

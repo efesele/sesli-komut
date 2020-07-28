@@ -1,0 +1,50 @@
+import RPi.GPIO as GPIO
+import time
+import speech_recognition as sr
+
+
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(11, GPIO.OUT)
+
+
+r = sr.Recognizer()
+m = sr.Microphone()    
+
+
+def listen():
+    try:
+        print("bekle...")
+        with m as source:
+            r.adjust_for_ambient_noise(source)
+        
+        
+        while True:
+            with m as source:
+                audio = r.listen(source)
+            print("anladım...")
+            try:
+                print("konuş")
+                
+                value = r.recognize_google(audio)
+
+                
+                if str is bytes:
+                    print(u"bunu söyledin {}".format(value).encode("utf-8"))
+                    return value
+                else:
+                    print("You said {}".format(value))
+                    if value == "can you open bedroom":
+                        print("tamamdır")
+                        GPIO.output(11,True)
+                    if value == "can you close bedroom":
+                        print("tamamdır")
+                        GPIO.output(11,False)
+
+                            
+            except sr.UnknownValueError:
+                print("hata")
+            except sr.RequestError as e:
+                print("aah olmadı galiba; {0}".format(e))
+    except KeyboardInterrupt:
+        pass

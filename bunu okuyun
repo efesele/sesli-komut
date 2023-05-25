@@ -1,8 +1,1 @@
-şu anda sadece led kontrol edilebiliyor
-şimdi servo motorun sinyal pinini GPIO pinine bağlamam gerekiyor 
-ben 17 ye bağlamaya karar verdim ve konuştuğumda servonun hareket etmesini istiyorum
 
-
-kod kısmında servo yu GPIO OUT olarak tanımladım
-ama ses verdiğimde nasıl hareket edeceğini bilmiyorum
-bunu halledebilirseniz sevinirim
